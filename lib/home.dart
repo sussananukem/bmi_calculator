@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'components/reusable_card.dart';
+import 'components/first_row_content.dart';
 
 //PROPERTIES
 const bottomButtonHeight = 80.0;
@@ -21,26 +24,50 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: [
+          //First
           Expanded(
+            //First Row
             child: Row(
               children: const [
-                ReusableCard(myColor: cardColor,),
-                ReusableCard(myColor: cardColor,),
+                ReusableCard(
+                  myColor: cardColor,
+                  cardChild: FirstRowContent(
+                    myIcon: FontAwesomeIcons.mars,
+                    label: 'MALE',
+                  ),
+                ),
+                ReusableCard(
+                  myColor: cardColor,
+                  cardChild: FirstRowContent(
+                    myIcon: FontAwesomeIcons.venus,
+                    label: 'FEMALE',
+                  ),
+                ),
               ],
             ),
           ),
-
-          const ReusableCard(myColor: cardColor,),
-
+          //Second
+          ReusableCard(
+            myColor: cardColor,
+            cardChild: Column(),
+          ),
+          //Third
           Expanded(
+            //Second Row
             child: Row(
-              children: const [
-                ReusableCard(myColor: cardColor,),
-                ReusableCard(myColor: cardColor,),
+              children: [
+                ReusableCard(
+                  myColor: cardColor,
+                  cardChild: Column(),
+                ),
+                ReusableCard(
+                  myColor: cardColor,
+                  cardChild: Column(),
+                ),
               ],
             ),
           ),
-
+          //Button
           Padding(
             padding: const EdgeInsets.only(top: 10.0),
             child: Container(
@@ -55,24 +82,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class ReusableCard extends StatelessWidget {
-  const ReusableCard({super.key, required this.myColor});
 
-  final Color myColor;
 
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Container(
-          decoration: BoxDecoration(
-            color: myColor,
-            borderRadius: BorderRadius.circular(10),
-          ),
 
-        ),
-      ),
-    );
-  }
-}
