@@ -23,9 +23,9 @@ class MyApp extends StatelessWidget {
       builder: DevicePreview.appBuilder,
       title: 'BMI Calculator Application',
       theme: ThemeData.dark().copyWith(
-        primaryColor: Color(0xFF0A0E21),
-        scaffoldBackgroundColor:Color(0xFF0A0E21),
-        appBarTheme: AppBarTheme(
+        primaryColor: const Color(0xFF0A0E21),
+        scaffoldBackgroundColor:const Color(0xFF0A0E21),
+        appBarTheme: const AppBarTheme(
           backgroundColor: Color(0xFF0A0E21),
         ),
       ),

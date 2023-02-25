@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+//PROPERTIES
+const bottomButtonHeight = 80.0;
+const cardColor = Color(0xFF1D1E33);
+const bottomButtonColor = Colors.tealAccent;
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
@@ -19,22 +24,31 @@ class _MyHomePageState extends State<MyHomePage> {
           Expanded(
             child: Row(
               children: const [
-                ReusableCard(myColor: Color(0xFF1D1E33),),
-                ReusableCard(myColor: Color(0xFF1D1E33),),
+                ReusableCard(myColor: cardColor,),
+                ReusableCard(myColor: cardColor,),
               ],
             ),
           ),
 
-          const ReusableCard(myColor: Color(0xFF1D1E33),),
+          const ReusableCard(myColor: cardColor,),
 
           Expanded(
             child: Row(
               children: const [
-                ReusableCard(myColor: Color(0xFF1D1E33),),
-                ReusableCard(myColor: Color(0xFF1D1E33),),
+                ReusableCard(myColor: cardColor,),
+                ReusableCard(myColor: cardColor,),
               ],
             ),
           ),
+
+          Padding(
+            padding: const EdgeInsets.only(top: 10.0),
+            child: Container(
+              width: double.infinity,
+              height: bottomButtonHeight,
+              color: bottomButtonColor,
+            ),
+          )
         ],
       ),
     );
