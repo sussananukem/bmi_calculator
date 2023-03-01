@@ -5,7 +5,8 @@ import 'components/first_row_content.dart';
 
 //PROPERTIES
 const bottomButtonHeight = 80.0;
-const cardColor = Color(0xFF1D1E33);
+const activeCardColor = Color(0xFF1D1E33);
+const inactiveCardColor = Color(0xFF111328);
 const bottomButtonColor = Colors.tealAccent;
 
 class MyHomePage extends StatefulWidget {
@@ -16,6 +17,29 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  //ADDED HERE BECAUSE THEY CAN CHANGE, HENCE THEY NEED TO BE IN A STATEFUL
+  // WIDGET CLASS.
+  Color femaleCardColor = inactiveCardColor;
+  Color maleCardColor = inactiveCardColor;
+  void updateCardColor(int gender){
+    //male = 1, female = 2
+    if (gender == 1){
+      if (maleCardColor == inactiveCardColor){
+        maleCardColor = activeCardColor;
+        femaleCardColor = inactiveCardColor;
+      }else{
+        maleCardColor = inactiveCardColor;
+      }
+    }else {
+      if (femaleCardColor == inactiveCardColor){
+        femaleCardColor = activeCardColor;
+        maleCardColor = inactiveCardColor;
+      }else{
+        femaleCardColor = inactiveCardColor;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,45 +48,71 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: [
-          //First
+          //FIRST
           Expanded(
-            //First Row
+            //FIRST ROW
             child: Row(
-              children: const [
-                ReusableCard(
-                  myColor: cardColor,
-                  cardChild: FirstRowContent(
-                    myIcon: FontAwesomeIcons.mars,
-                    label: 'MALE',
+              children: [
+                //MALE
+                Expanded(
+                  child: GestureDetector(
+                    onTap: (){
+                      setState(() {
+                        updateCardColor(1);
+                      });
+                    },
+                    child: ReusableCard(
+                      myColor: maleCardColor,
+                      cardChild: const FirstRowContent(
+                        myIcon: FontAwesomeIcons.mars,
+                        label: 'MALE',
+                      ),
+                    ),
                   ),
                 ),
-                ReusableCard(
-                  myColor: cardColor,
-                  cardChild: FirstRowContent(
-                    myIcon: FontAwesomeIcons.venus,
-                    label: 'FEMALE',
+                //FEMALE
+                Expanded(
+                  child: GestureDetector(
+                    onTap: (){
+                      setState(() {
+                        updateCardColor(2);
+                      });
+                    },
+                    child: ReusableCard(
+                      myColor: femaleCardColor,
+                      cardChild: const FirstRowContent(
+                        myIcon: FontAwesomeIcons.venus,
+                        label: 'FEMALE',
+                      ),
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-          //Second
-          ReusableCard(
-            myColor: cardColor,
-            cardChild: Column(),
+          //SECOND ROW
+          Expanded(
+            child: ReusableCard(
+              myColor: activeCardColor,
+              cardChild: Column(),
+            ),
           ),
-          //Third
+          //THIRD ROW
           Expanded(
             //Second Row
             child: Row(
               children: [
-                ReusableCard(
-                  myColor: cardColor,
-                  cardChild: Column(),
+                Expanded(
+                  child: ReusableCard(
+                    myColor: activeCardColor,
+                    cardChild: Column(),
+                  ),
                 ),
-                ReusableCard(
-                  myColor: cardColor,
-                  cardChild: Column(),
+                Expanded(
+                  child: ReusableCard(
+                    myColor: activeCardColor,
+                    cardChild: Column(),
+                  ),
                 ),
               ],
             ),
