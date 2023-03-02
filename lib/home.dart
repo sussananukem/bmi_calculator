@@ -30,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Color femaleCardColor = inactiveCardColor;
   Color maleCardColor = inactiveCardColor;
   void updateCardColor(Gender gender){
-    //male = 1, female = 2
+    //Male card selected
     if (gender == Gender.male){
       if (maleCardColor == inactiveCardColor){
         maleCardColor = activeCardColor;
@@ -38,6 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
       }else{
         maleCardColor = inactiveCardColor;
       }
+      //Female card selected
     }else {
       if (femaleCardColor == inactiveCardColor){
         femaleCardColor = activeCardColor;
