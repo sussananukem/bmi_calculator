@@ -9,6 +9,14 @@ const activeCardColor = Color(0xFF1D1E33);
 const inactiveCardColor = Color(0xFF111328);
 const bottomButtonColor = Colors.tealAccent;
 
+//ENUM: Always need to be outside of classes
+//Just like a bool but with more than one option
+
+enum Gender{
+  male,
+  female,
+}
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
@@ -21,9 +29,9 @@ class _MyHomePageState extends State<MyHomePage> {
   // WIDGET CLASS.
   Color femaleCardColor = inactiveCardColor;
   Color maleCardColor = inactiveCardColor;
-  void updateCardColor(int gender){
+  void updateCardColor(Gender gender){
     //male = 1, female = 2
-    if (gender == 1){
+    if (gender == Gender.male){
       if (maleCardColor == inactiveCardColor){
         maleCardColor = activeCardColor;
         femaleCardColor = inactiveCardColor;
@@ -58,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: GestureDetector(
                     onTap: (){
                       setState(() {
-                        updateCardColor(1);
+                        updateCardColor(Gender.male);
                       });
                     },
                     child: ReusableCard(
@@ -75,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: GestureDetector(
                     onTap: (){
                       setState(() {
-                        updateCardColor(2);
+                        updateCardColor(Gender.female);
                       });
                     },
                     child: ReusableCard(
