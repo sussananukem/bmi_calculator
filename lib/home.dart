@@ -12,7 +12,7 @@ const bottomButtonColor = Colors.tealAccent;
 //ENUM: Always need to be outside of classes
 //Just like a bool but with more than one option
 
-enum Gender{
+enum Gender {
   male,
   female,
 }
@@ -27,27 +27,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   //ADDED HERE BECAUSE THEY CAN CHANGE, HENCE THEY NEED TO BE IN A STATEFUL
   // WIDGET CLASS.
-  Color femaleCardColor = inactiveCardColor;
-  Color maleCardColor = inactiveCardColor;
-  void updateCardColor(Gender gender){
-    //Male card selected
-    if (gender == Gender.male){
-      if (maleCardColor == inactiveCardColor){
-        maleCardColor = activeCardColor;
-        femaleCardColor = inactiveCardColor;
-      }else{
-        maleCardColor = inactiveCardColor;
-      }
-      //Female card selected
-    }else {
-      if (femaleCardColor == inactiveCardColor){
-        femaleCardColor = activeCardColor;
-        maleCardColor = inactiveCardColor;
-      }else{
-        femaleCardColor = inactiveCardColor;
-      }
-    }
-  }
+ Gender? selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -65,13 +45,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 //MALE
                 Expanded(
                   child: GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       setState(() {
-                        updateCardColor(Gender.male);
+                        selectedGender = Gender.male;
                       });
                     },
                     child: ReusableCard(
-                      myColor: maleCardColor,
+                      myColor: selectedGender == Gender.male
+                          ? activeCardColor
+                          : inactiveCardColor,
                       cardChild: const FirstRowContent(
                         myIcon: FontAwesomeIcons.mars,
                         label: 'MALE',
@@ -82,13 +64,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 //FEMALE
                 Expanded(
                   child: GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       setState(() {
-                        updateCardColor(Gender.female);
+                        selectedGender = Gender.female;
                       });
                     },
                     child: ReusableCard(
-                      myColor: femaleCardColor,
+                      myColor: selectedGender == Gender.female
+                          ? activeCardColor
+                          : inactiveCardColor,
                       cardChild: const FirstRowContent(
                         myIcon: FontAwesomeIcons.venus,
                         label: 'FEMALE',
@@ -140,7 +124,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-
-
-
