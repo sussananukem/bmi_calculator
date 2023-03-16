@@ -44,39 +44,35 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 //MALE
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ReusableCard(
+                    onPress: (){
                       setState(() {
                         selectedGender = Gender.male;
                       });
                     },
-                    child: ReusableCard(
-                      myColor: selectedGender == Gender.male
-                          ? activeCardColor
-                          : inactiveCardColor,
-                      cardChild: const FirstRowContent(
-                        myIcon: FontAwesomeIcons.mars,
-                        label: 'MALE',
-                      ),
+                    myColor: selectedGender == Gender.male
+                        ? activeCardColor
+                        : inactiveCardColor,
+                    cardChild: const FirstRowContent(
+                      myIcon: FontAwesomeIcons.mars,
+                      label: 'MALE',
                     ),
                   ),
                 ),
                 //FEMALE
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ReusableCard(
+                    onPress: (){
                       setState(() {
                         selectedGender = Gender.female;
                       });
                     },
-                    child: ReusableCard(
-                      myColor: selectedGender == Gender.female
-                          ? activeCardColor
-                          : inactiveCardColor,
-                      cardChild: const FirstRowContent(
-                        myIcon: FontAwesomeIcons.venus,
-                        label: 'FEMALE',
-                      ),
+                    myColor: selectedGender == Gender.female
+                        ? activeCardColor
+                        : inactiveCardColor,
+                    cardChild: const FirstRowContent(
+                      myIcon: FontAwesomeIcons.venus,
+                      label: 'FEMALE',
                     ),
                   ),
                 ),
@@ -86,6 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
           //SECOND ROW
           Expanded(
             child: ReusableCard(
+              onPress: (){},
               myColor: activeCardColor,
               cardChild: Column(),
             ),
@@ -97,12 +94,14 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Expanded(
                   child: ReusableCard(
+                    onPress: (){},
                     myColor: activeCardColor,
                     cardChild: Column(),
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
+                    onPress: (){},
                     myColor: activeCardColor,
                     cardChild: Column(),
                   ),
