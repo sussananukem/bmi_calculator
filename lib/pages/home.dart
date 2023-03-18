@@ -4,6 +4,8 @@ import '../components/reusable_card.dart';
 import '../components/first_row_content.dart';
 import 'package:bmi_calculator/constants.dart';
 
+import '../components/select_height.dart';
+
 //ENUM: Always need to be outside of classes
 //Just like a bool but with more than one option
 
@@ -76,11 +78,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           //SECOND ROW
+          //HEIGHT SECTION
           Expanded(
             child: ReusableCard(
               onPress: (){},
               myColor: kActiveCardColor,
-              cardChild: Column(),
+              cardChild: const SelectHeight(),
             ),
           ),
           //THIRD ROW
