@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:bmi_calculator/constants.dart';
 
-const labelStyle = TextStyle(
-    fontSize: 18.0,
-    color: Color(0xFF8D8E98)
-);
 
 class FirstRowContent extends StatelessWidget {
   const FirstRowContent({
@@ -29,7 +26,7 @@ class FirstRowContent extends StatelessWidget {
         ),
         Text(
           label,
-          style: labelStyle,
+          style: kLabelStyle,
         ),
       ],
     );
