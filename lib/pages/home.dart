@@ -4,7 +4,9 @@ import '../components/reusable_card.dart';
 import '../components/first_row_content.dart';
 import 'package:bmi_calculator/constants.dart';
 
+import '../components/select_age.dart';
 import '../components/select_height.dart';
+import '../components/select_weight.dart';
 
 //ENUM: Always need to be outside of classes
 //Just like a bool but with more than one option
@@ -32,17 +34,18 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: const Center(child: Text('BMI CALCULATOR')),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          //FIRST
-          Expanded(
-            //FIRST ROW
-            child: Row(
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            //FIRST
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 //MALE
                 Expanded(
                   child: ReusableCard(
+                    myPadding: const EdgeInsets.symmetric(vertical: 30),
                     onPress: (){
                       setState(() {
                         selectedGender = Gender.male;
@@ -60,6 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 //FEMALE
                 Expanded(
                   child: ReusableCard(
+                    myPadding: const EdgeInsets.symmetric(vertical: 30),
                     onPress: (){
                       setState(() {
                         selectedGender = Gender.female;
@@ -76,48 +80,55 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
-          ),
-          //SECOND ROW
-          //HEIGHT SECTION
-          Expanded(
-            child: ReusableCard(
+            //SECOND ROW
+            //HEIGHT SECTION
+            ReusableCard(
+              myPadding: const EdgeInsets.symmetric(vertical: 30),
               onPress: (){},
               myColor: kActiveCardColor,
               cardChild: const SelectHeight(),
             ),
-          ),
-          //THIRD ROW
-          Expanded(
-            //Second Row
-            child: Row(
+            //THIRD ROW
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                //WEIGHT SELECTION
                 Expanded(
                   child: ReusableCard(
+                    myPadding: const EdgeInsets.symmetric(vertical: 30),
                     onPress: (){},
                     myColor: kActiveCardColor,
-                    cardChild: Column(),
+                    cardChild: const SelectWeight(),
                   ),
                 ),
+                //AGE SELECTION
                 Expanded(
                   child: ReusableCard(
+                    myPadding: const EdgeInsets.symmetric(vertical: 30),
                     onPress: (){},
                     myColor: kActiveCardColor,
-                    cardChild: Column(),
+                    cardChild: const SelectAge(),
                   ),
                 ),
               ],
             ),
-          ),
-          //BUTTON
-          Padding(
-            padding: const EdgeInsets.only(top: 10.0),
-            child: Container(
-              width: double.infinity,
-              height: kBottomButtonHeight,
-              color: kBottomButtonColor,
-            ),
-          )
-        ],
+            //BUTTON
+            Padding(
+              padding: const EdgeInsets.only(top: 10.0),
+              child: Container(
+                width: double.infinity,
+                height: kBottomButtonHeight,
+                color: kBottomButtonColor,
+                child: const Center(
+                  child: Text(
+                    kCalcButtonText,
+                    style: kCalcButtonTextStyle,
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

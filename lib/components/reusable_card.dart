@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 class ReusableCard extends StatelessWidget {
   const ReusableCard(
       {super.key, required this.myColor, required this.cardChild, required this
-          .onPress});
+          .onPress, this.myPadding});
 
   final Color myColor;
   final Widget cardChild;
+  final EdgeInsetsGeometry? myPadding;
   final void Function()? onPress; //or Voidcallback
 
   @override
@@ -16,6 +17,7 @@ class ReusableCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Container(
+          padding: myPadding,
           decoration: BoxDecoration(
             color: myColor,
             borderRadius: BorderRadius.circular(10),

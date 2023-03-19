@@ -15,11 +15,14 @@ class _SelectHeightState extends State<SelectHeight> {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         //A text that says HEIGHT
-        const Text(
-          kHeightCardLabel,
-          style: kLabelStyle,
+        const Center(
+          child: Text(
+            kHeightCardLabel,
+            style: kLabelStyle,
+          ),
         ),
         //A row that contains two children, Height VALUE and METRIC
         Row(
@@ -34,18 +37,34 @@ class _SelectHeightState extends State<SelectHeight> {
           ],
         ),
         //Slider having min, max, active color, inactive color and value
-        Slider(
-          value: height.toDouble(),
-          min: 120.0,
-          max: 220.0,
-          divisions: 5,
-          activeColor: Colors.teal,
-          inactiveColor: Colors.grey,
-          onChanged: (double value) {
-            setState(() {
-              height = value.round();
-            });
-          },
+        //ToDo: Customize Slider using SliderTheme
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: SliderTheme(
+            data: SliderTheme.of(context).copyWith(
+              activeTrackColor: Colors.white,
+              inactiveTrackColor: Colors.grey,
+              thumbColor: Colors.teal,
+              thumbShape: const RoundSliderThumbShape(enabledThumbRadius:
+              10.0),
+              //Can add overlay shape and color. But mine works perfectly
+              overlayShape: const RoundSliderOverlayShape(overlayRadius:
+              20),
+              activeTickMarkColor: Colors.teal,
+              inactiveTickMarkColor: Colors.grey.shade900,
+             ),
+            child: Slider(
+              value: height.toDouble(),
+              min: 120.0,
+              max: 220.0,
+              divisions: 100,
+              onChanged: (double value) {
+                setState(() {
+                  height = value.round();
+                });
+              },
+            ),
+          ),
         ),
       ],
     );
