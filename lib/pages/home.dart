@@ -34,6 +34,9 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: const Center(child: Text('BMI CALCULATOR')),
       ),
+      //With SingleChildScrollView, the EXPANDED widget can only be used
+      // within a row, not a column or any random widget in the vertical tree
+      // . Use this to your advantage
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

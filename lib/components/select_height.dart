@@ -46,10 +46,10 @@ class _SelectHeightState extends State<SelectHeight> {
               inactiveTrackColor: Colors.grey,
               thumbColor: Colors.teal,
               thumbShape: const RoundSliderThumbShape(enabledThumbRadius:
-              10.0),
+              15.0),
               //Can add overlay shape and color. But mine works perfectly
               overlayShape: const RoundSliderOverlayShape(overlayRadius:
-              20),
+              30),
               activeTickMarkColor: Colors.teal,
               inactiveTickMarkColor: Colors.grey.shade900,
              ),
