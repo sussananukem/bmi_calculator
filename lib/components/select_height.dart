@@ -44,13 +44,14 @@ class _SelectHeightState extends State<SelectHeight> {
             data: SliderTheme.of(context).copyWith(
               activeTrackColor: Colors.white,
               inactiveTrackColor: Colors.grey,
-              thumbColor: Colors.teal,
+              thumbColor: kPink,
               thumbShape: const RoundSliderThumbShape(enabledThumbRadius:
               15.0),
               //Can add overlay shape and color. But mine works perfectly
               overlayShape: const RoundSliderOverlayShape(overlayRadius:
               30),
-              activeTickMarkColor: Colors.teal,
+              overlayColor: kPinkTransparent,
+              activeTickMarkColor: kPink,
               inactiveTickMarkColor: Colors.grey.shade900,
              ),
             child: Slider(

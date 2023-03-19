@@ -116,16 +116,21 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             //BUTTON
-            Padding(
-              padding: const EdgeInsets.only(top: 10.0),
-              child: Container(
-                width: double.infinity,
-                height: kBottomButtonHeight,
-                color: kBottomButtonColor,
-                child: const Center(
-                  child: Text(
-                    kCalcButtonText,
-                    style: kCalcButtonTextStyle,
+            GestureDetector(
+              onTap: (){
+                Navigator.pushNamed(context, '/Result');
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: Container(
+                  width: double.infinity,
+                  height: kBottomButtonHeight,
+                  color: kPink,
+                  child: const Center(
+                    child: Text(
+                      kCalcButtonText,
+                      style: kCalcButtonTextStyle,
+                    ),
                   ),
                 ),
               ),
