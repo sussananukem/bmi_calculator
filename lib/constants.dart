@@ -12,7 +12,13 @@ const kNumberStyle = TextStyle(
 const kCalcButtonTextStyle = TextStyle(
     fontSize: 18.0,
     color: Colors.white,
-  fontWeight: FontWeight.w500,
+  fontWeight: FontWeight.bold,
+);
+const kResultHeaderStyle = TextStyle(
+  fontSize: 30.0,
+  color: Colors.white,
+  letterSpacing: 1.0,
+  fontWeight: FontWeight.bold,
 );
 
 //PROPERTIES
@@ -36,3 +42,7 @@ const String kAgeCardLabel = 'AGE';
 
 //CALCULATE BMI
 const String kCalcButtonText = 'CALCULATE YOUR BMI';
+const String kReCalcButtonText = 'RE-CALCULATE YOUR BMI';
+
+//RESULT PAGE
+const String kResultHeaderText = 'YOUR RESULT';

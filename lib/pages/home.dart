@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../components/calculate_button.dart';
 import '../components/reusable_card.dart';
 import '../components/first_row_content.dart';
 import 'package:bmi_calculator/constants.dart';
@@ -26,13 +27,14 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   //ADDED HERE BECAUSE THEY CAN CHANGE, HENCE THEY NEED TO BE IN A STATEFUL
   // WIDGET CLASS.
- Gender? selectedGender;
+  Gender? selectedGender;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('BMI CALCULATOR')),
+        centerTitle: true,
+        title: const Text('BMI CALCULATOR'),
       ),
       //With SingleChildScrollView, the EXPANDED widget can only be used
       // within a row, not a column or any random widget in the vertical tree
@@ -49,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Expanded(
                   child: ReusableCard(
                     myPadding: const EdgeInsets.symmetric(vertical: 30),
-                    onPress: (){
+                    onPress: () {
                       setState(() {
                         selectedGender = Gender.male;
                       });
@@ -67,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Expanded(
                   child: ReusableCard(
                     myPadding: const EdgeInsets.symmetric(vertical: 30),
-                    onPress: (){
+                    onPress: () {
                       setState(() {
                         selectedGender = Gender.female;
                       });
@@ -87,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
             //HEIGHT SECTION
             ReusableCard(
               myPadding: const EdgeInsets.symmetric(vertical: 30),
-              onPress: (){},
+              onPress: () {},
               myColor: kActiveCardColor,
               cardChild: const SelectHeight(),
             ),
@@ -99,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Expanded(
                   child: ReusableCard(
                     myPadding: const EdgeInsets.symmetric(vertical: 30),
-                    onPress: (){},
+                    onPress: () {},
                     myColor: kActiveCardColor,
                     cardChild: const SelectWeight(),
                   ),
@@ -108,35 +110,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 Expanded(
                   child: ReusableCard(
                     myPadding: const EdgeInsets.symmetric(vertical: 30),
-                    onPress: (){},
+                    onPress: () {},
                     myColor: kActiveCardColor,
                     cardChild: const SelectAge(),
                   ),
                 ),
               ],
             ),
-            //BUTTON
-            GestureDetector(
-              onTap: (){
-                Navigator.pushNamed(context, '/Result');
-              },
-              child: Padding(
-                padding: const EdgeInsets.only(top: 10.0),
-                child: Container(
-                  width: double.infinity,
-                  height: kBottomButtonHeight,
-                  color: kPink,
-                  child: const Center(
-                    child: Text(
-                      kCalcButtonText,
-                      style: kCalcButtonTextStyle,
-                    ),
-                  ),
-                ),
-              ),
-            )
           ],
         ),
+      ),
+      //BUTTON
+      bottomNavigationBar: CalculateButton(
+        calcBtnTxt: kCalcButtonText,
+        onTap: (){
+          Navigator.pushNamed(context, '/Result');
+        },
       ),
     );
   }
