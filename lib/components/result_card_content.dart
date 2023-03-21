@@ -1,80 +1,59 @@
+import 'package:bmi_calculator/components/save_button.dart';
 import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 
 class ResultCardContent extends StatelessWidget {
-  const ResultCardContent({Key? key}) : super(key: key);
+  const ResultCardContent({super.key,
+    required this.statusLabelText,
+    required this.bmiValue,
+    required this.bmiRange,
+    required this.rangeValue,
+    required this.commentOnBmi,
+});
+
+  final String statusLabelText;
+  final String bmiValue;
+  final String bmiRange;
+  final String rangeValue;
+  final String commentOnBmi;
 
   @override
   Widget build(BuildContext context) {
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text(
-          'NORMAL',
-          style: TextStyle(
-            color: Colors.green,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 2.0,
-            fontSize: 18.0,
-          ),
+        Text(
+          statusLabelText,
+          style: kStatusLabelTextStyle,
         ),
-        const Text(
-          '22.1',
-          style: TextStyle(
-            fontWeight: FontWeight.w700,
-            fontSize: 80,
-          ),
+        Text(
+          bmiValue,
+          style: kBmiValue,
         ),
-        const Padding(
-          padding: EdgeInsets.only(top: 20.0),
+        Padding(
+          padding: const EdgeInsets.only(top: 20.0),
           child: Text(
-            'Normal BMI range:',
-            style: TextStyle(
-              color: Colors.white30,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 1.0,
-              fontSize: 16.0,
-            ),
+            bmiRange,
+            style: kBmiRange,
           ),
         ),
-        const Padding(
-          padding: EdgeInsets.only(bottom: 20.0),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 20.0),
           child: Text(
-            '18.5 - 25 kg/m2',
-            style: TextStyle(
-              fontWeight: FontWeight.w400,
-              letterSpacing: 0.5,
-              fontSize: 16.0,
-            ),
+            rangeValue,
+            style: kRangeValue,
           ),
         ),
-        const Text(
-          'You have a normal body weight. Good job!',
+        Text(
+          commentOnBmi,
           textAlign: TextAlign.center,
-          style: TextStyle(
-            fontWeight: FontWeight.w400,
-            fontSize: 16.0,
-          ),
+          style: kCommentOnBmi,
         ),
-        GestureDetector(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 30.0),
-            child: Container(
-              color: Colors.white10,
-              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-              child: const Text(
-                'SAVE RESULT',
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white,
-                  letterSpacing: 1.0,
-                  fontSize: 16.0,
-                ),
-              ),
-            ),
-          ),
-        )
+        const SaveButton()
       ],
     );
   }
 }
+
+

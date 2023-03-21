@@ -20,7 +20,7 @@ class _ResultPageState extends State<ResultPage> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          'BMI CALCULATOR',
+          kAppBarTitle,
         ),
       ),
       body: Center(
@@ -43,7 +43,13 @@ class _ResultPageState extends State<ResultPage> {
                 child: ReusableCard(
                   myPadding: const EdgeInsets.all(30.0),
                   myColor: kActiveCardColor,
-                  cardChild: const ResultCardContent(),
+                  cardChild: const ResultCardContent(
+                    statusLabelText: 'NORMAL',
+                    bmiValue: '22.1',
+                    bmiRange: 'Normal BMI range:',
+                    rangeValue: '18.5 - 25 kg/m2',
+                    commentOnBmi: 'You have a normal body weight. Good job!',
+                  ),
                   onPress: () {},
                 ),
               ),

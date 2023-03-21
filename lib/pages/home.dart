@@ -34,7 +34,9 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('BMI CALCULATOR'),
+        title: const Text(
+          kAppBarTitle,
+        ),
       ),
       //With SingleChildScrollView, the EXPANDED widget can only be used
       // within a row, not a column or any random widget in the vertical tree
@@ -123,7 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
       //BUTTON
       bottomNavigationBar: CalculateButton(
         calcBtnTxt: kCalcButtonText,
-        onTap: (){
+        onTap: () {
           Navigator.pushNamed(context, '/Result');
         },
       ),
