@@ -6,11 +6,7 @@ const kNumberStyle = TextStyle(
   color: Colors.white,
   fontWeight: FontWeight.w900,
 );
-const kCalcButtonTextStyle = TextStyle(
-  fontSize: 18.0,
-  color: Colors.white,
-  fontWeight: FontWeight.bold,
-);
+
 const kResultHeaderStyle = TextStyle(
   fontSize: 30.0,
   color: Colors.white,
@@ -43,6 +39,11 @@ const String kAgeCardLabel = 'AGE';
 //CALCULATE BMI
 const String kCalcButtonText = 'CALCULATE YOUR BMI';
 const String kReCalcButtonText = 'RE-CALCULATE YOUR BMI';
+const kCalcButtonTextStyle = TextStyle(
+  fontSize: 20.0,
+  color: Colors.white,
+  fontWeight: FontWeight.w500,
+);
 
 //RESULT PAGE
 const String kResultHeaderText = 'YOUR RESULT';
@@ -52,27 +53,31 @@ const kStatusLabelTextStyle = TextStyle(
   color: Colors.green,
   fontWeight: FontWeight.bold,
   letterSpacing: 2.0,
-  fontSize: 18.0,
+  fontSize: 20.0,
 );
  const kBmiValue = TextStyle(
    fontWeight: FontWeight.w700,
-   fontSize: 80,
+   fontSize: 90,
  );
 
  const kBmiRange = TextStyle(
    color: Colors.white30,
    fontWeight: FontWeight.bold,
    letterSpacing: 1.0,
-   fontSize: 16.0,
+   fontSize: 18.0,
  );
 
  const kRangeValue = TextStyle(
-   fontWeight: FontWeight.bold,
+   fontWeight: FontWeight.w500,
    letterSpacing: 0.5,
-   fontSize: 16.0,
+   fontSize: 18.0,
+   color: Colors.white70,
+
  );
 
  const kCommentOnBmi = TextStyle(
    fontWeight: FontWeight.bold,
-   fontSize: 16.0,
+   fontSize: 18.0,
+   color: Colors.white,
+   letterSpacing: 1,
  );

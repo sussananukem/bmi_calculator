@@ -52,7 +52,8 @@ class _ResultPageState extends State<ResultPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical:
                 10.0),
                 child: ReusableCard(
-                  myPadding: const EdgeInsets.all(30.0),
+                  myPadding: const EdgeInsets.symmetric(horizontal: 30.0,
+                      vertical: 50.0),
                   myColor: kActiveCardColor,
                   cardChild:  ResultCardContent(
                     statusLabelText: calc.getStatusLabelText(),

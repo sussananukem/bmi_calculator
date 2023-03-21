@@ -61,9 +61,9 @@ class CalculatorBrain {
     } else if (_bmi <= 24.9) {
       return 'You have a normal body weight. Good job!';
     } else if (_bmi <= 29.9) {
-      return 'You are overweight. Keep pushing!';
+      return 'You are overweight. Exercise More!';
     } else {
-      return 'You are obese. Don\'t give up!';
+      return 'You are obese. Diet & Exercise More!';
     }
   }
 }
