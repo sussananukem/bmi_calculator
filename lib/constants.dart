@@ -67,12 +67,12 @@ const kStatusLabelTextStyle = TextStyle(
  );
 
  const kRangeValue = TextStyle(
-   fontWeight: FontWeight.w400,
+   fontWeight: FontWeight.bold,
    letterSpacing: 0.5,
    fontSize: 16.0,
  );
 
  const kCommentOnBmi = TextStyle(
-   fontWeight: FontWeight.w400,
+   fontWeight: FontWeight.bold,
    fontSize: 16.0,
  );

@@ -62,6 +62,7 @@ class _SelectHeightState extends State<SelectHeight> {
               onChanged: (double value) {
                 setState(() {
                   height = value.round();
+                  debugPrint(height.toString());
                 });
               },
             ),

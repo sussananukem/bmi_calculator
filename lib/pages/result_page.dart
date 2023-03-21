@@ -1,10 +1,14 @@
 import 'package:bmi_calculator/components/calculate_button.dart';
 import 'package:bmi_calculator/components/reusable_card.dart';
 import 'package:bmi_calculator/constants.dart';
+import 'package:bmi_calculator/functionality/calculator_brain.dart';
 import 'package:bmi_calculator/pages/home.dart';
 import 'package:flutter/material.dart';
 
 import '../components/result_card_content.dart';
+import '../components/select_height.dart';
+import '../components/select_weight.dart';
+
 
 class ResultPage extends StatefulWidget {
   const ResultPage({Key? key}) : super(key: key);
@@ -14,8 +18,15 @@ class ResultPage extends StatefulWidget {
 }
 
 class _ResultPageState extends State<ResultPage> {
+
   @override
   Widget build(BuildContext context) {
+    //ALT A
+    //The double dot means do not assign value to calc, just run the function
+    // init
+    // CalculatorBrain calc = CalculatorBrain(height: height, weight: weight)..init();
+    CalculatorBrain calc = CalculatorBrain(height: height, weight: weight);
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -43,12 +54,12 @@ class _ResultPageState extends State<ResultPage> {
                 child: ReusableCard(
                   myPadding: const EdgeInsets.all(30.0),
                   myColor: kActiveCardColor,
-                  cardChild: const ResultCardContent(
-                    statusLabelText: 'NORMAL',
-                    bmiValue: '22.1',
-                    bmiRange: 'Normal BMI range:',
-                    rangeValue: '18.5 - 25 kg/m2',
-                    commentOnBmi: 'You have a normal body weight. Good job!',
+                  cardChild:  ResultCardContent(
+                    statusLabelText: calc.getStatusLabelText(),
+                    bmiValue: calc.getBMI(),
+                    bmiRange: calc.getBmiRange(),
+                    rangeValue: calc.getRangeValue(),
+                    commentOnBmi: calc.getCommentOnBmi(),
                   ),
                   onPress: () {},
                 ),

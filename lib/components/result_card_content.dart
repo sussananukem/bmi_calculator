@@ -1,5 +1,4 @@
-import 'package:bmi_calculator/components/save_button.dart';
-import 'package:bmi_calculator/constants.dart';
+ import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 
 class ResultCardContent extends StatelessWidget {
@@ -50,8 +49,7 @@ class ResultCardContent extends StatelessWidget {
           textAlign: TextAlign.center,
           style: kCommentOnBmi,
         ),
-        const SaveButton()
-      ],
+       ],
     );
   }
 }

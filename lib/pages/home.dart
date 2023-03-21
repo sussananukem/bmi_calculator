@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../components/calculate_button.dart';
 import '../components/reusable_card.dart';
@@ -126,7 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: CalculateButton(
         calcBtnTxt: kCalcButtonText,
         onTap: () {
-          Navigator.pushNamed(context, '/Result');
+           Navigator.pushNamed(context, '/Result');
         },
       ),
     );
